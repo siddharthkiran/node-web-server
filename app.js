@@ -16,9 +16,9 @@ fs.appendFile('server.log' , log +'\n');
 next();
 });
 
-app.use((req,res,next) =>{
-  res.render('maintain.hbs');
-})
+// app.use((req,res,next) =>{
+//   res.render('maintain.hbs');
+// })
 
 app.get('/',(req,res) =>{
   res.render('home.hbs',{
@@ -26,6 +26,13 @@ app.get('/',(req,res) =>{
     year : new Date().getFullYear()
   })
 })
+
+app.get('/project', (req,res) =>{
+  res.render('project.hbs', {
+    title: 'projects',
+    year : new Date().getFullYear()
+  })
+});
 
 app.get('/about',(req,res) =>{
   res.render('about.hbs',{
